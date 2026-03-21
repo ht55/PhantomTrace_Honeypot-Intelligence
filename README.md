@@ -17,6 +17,8 @@ Most honeypot projects stop at log collection. This one starts there — but the
 
 To answer that without running a real honeypot (and the legal/security surface that comes with it), this project generates two flavors of synthetic attack logs and puts them through an LLM analysis pipeline.
 
+This was not the original plan. A dummy fitness company site (bodysyniq.fit) was deployed specifically as a honeypot — complete with canary tokens and intentionally exposed `.env` — but Cloudflare's bot protection, while excellent for production use, blocked the very traffic this project needed to observe. Rather than pay for higher-tier plans or expose a VPS, the project pivoted to synthetic data: a cleaner approach that also enables ground-truth labeling and reproducibility.
+
 ---
 
 ## Architecture
@@ -26,8 +28,8 @@ To answer that without running a real honeypot (and the legal/security surface t
 │                    DATA GENERATION                       │
 │                                                         │
 │   personas.py                                           │
-│   ├── Site A: API-first SaaS  (OAuth, JWT, token theft) │
-│   └── Site B: EC / PII        (credential stuffing, PII)│
+│   ├── Site A: API-first developer site                  │
+│   └── Site B: Dummy company (PII / financial exposed)   │
 │                                                         │
 │   faker_generator.py   →  random sampling               │
 │   markov_generator.py  →  state transition chains       │
@@ -59,6 +61,7 @@ To answer that without running a real honeypot (and the legal/security surface t
 │   ├── Attack Analysis   — types, status codes, treemap  │
 │   ├── Faker vs Markov   — distribution + accuracy delta │
 │   ├── Attacker Profiles — MBTI cards + radar chart      │
+│   ├── Anomaly Detection — Isolation Forest results      │
 │   └── Markov Graph      — NetworkX state transitions    │
 └─────────────────────────────────────────────────────────┘
 ```
@@ -75,6 +78,43 @@ Running a real honeypot introduces:
 Synthetic data sidesteps all of that while enabling something a real honeypot cannot: **intentional design of attack scenarios** with ground truth labels. This makes the LLM classification meaningful — we can actually measure accuracy.
 
 This is standard practice in security research (MITRE ATT&CK, Splunk BOSSEC).
+
+---
+
+## Real-World Calibration
+
+The synthetic data is not purely fictional. Attack paths, IP regions, and Markov transition probabilities were partially calibrated against observations from **two live sites** operated over 1–3 months (March 2026):
+
+- Site A: a developer portal hosting multiple API-key-gated applications
+- Site B: a dummy company site with intentionally exposed `.env` and canary tokens
+
+**Disclaimer:** small sample, two sites only, short observation window. Not statistically significant. Used as design guidance, not ground truth. See [`/docs/real-observations/`](docs/real-observations/) for raw screenshots.
+
+### What the real data showed
+
+**Attack origins diverge sharply from common assumptions.**
+Textbook threat intel points to CN/IN/RU as dominant sources. In practice, the overwhelming majority of traffic originated from **European cloud infrastructure** — Hetzner (Frankfurt), DigitalOcean (Amsterdam), OVHcloud (Paris), AWS eu-north-1 (Stockholm). These are datacenter exit IPs, not attacker nationality. The likely explanation: cheap EU VPS abuse and VPN/proxy exit nodes.
+
+| Expected (common assumption) | Observed (real data) |
+|------------------------------|----------------------|
+| China, India, Russia dominant | Near zero            |
+| US moderate                  | Moderate (LAX, ORD)  |
+| Europe minor                 | Dominant (FRA, AMS, ARN, OSL, CDG) |
+
+**Developer sites attract disproportionate traffic.**
+The developer portal hosting API-key-gated applications received roughly 10x more daily attack traffic than the dummy company site with canary tokens and exposed `.env`. Modern attackers appear to prioritize credential theft — specifically API keys that enable immediate, programmatic access — over static data exfiltration.
+
+**AWS credential paths are specifically and systematically targeted.**
+Scanners didn't just probe `/.env` — they ran through a structured dictionary: `/awsconfig.js`, `/aws.env`, `/.aws/credentials`, `/aws-exports.js`, `/crm/.env`, `/.env.bak`, `/.env.live`, `/.env.prod`. This reflects purpose-built tooling, not generic scanners.
+
+**Multilingual scanner dictionaries.**
+WordPress paths arrived with language prefixes: `/cms/wp-includes/wlwmanifest.xml`, `/site/wp-includes/...`, `/sito/wp-includes/...` (`sito` = Italian for "site"). Suggests scanner dictionaries built from multilingual web corpora.
+
+**New domains spike immediately.**
+Within hours of DNS propagation, scanning began. Volume peaked in the first week then stabilized — consistent with Shodan/Censys indexing behavior.
+
+**Timing aligns with European business hours.**
+Attack volume peaked between 00:00–08:00 CDT, which corresponds to 06:00–16:00 UTC — European working hours. Further evidence that the infrastructure (if not the operators) is EU-based.
 
 ---
 
@@ -114,33 +154,31 @@ This is not serious threat intelligence. It is a deliberate design choice to mak
 |-------|-------|
 | Data generation | `faker`, `random`, custom Markov engine |
 | LLM pipeline | `anthropic` SDK, Structured Outputs, async Batch API |
-| Analysis | `pandas`, `networkx`, `scikit-learn` (Isolation Forest) |
-| Visualization | `streamlit`, `plotly` |
+| Anomaly detection | `scikit-learn` Isolation Forest (session + request level) |
+| Analysis | `pandas`, `networkx` |
+| Frontend | Next.js, TypeScript, Tailwind CSS |
 
 ---
 
 ## Setup
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/honeypot-intelligence
-cd honeypot-intelligence
+git clone https://github.com/YOUR_USERNAME/phantom-trace
+cd phantom-trace
+```
+
+**Generate logs (Python):**
+```bash
 pip install -r requirements.txt
-```
-
-**Generate logs:**
-```bash
 python main.py
+python llm_pipeline.py   # requires ANTHROPIC_API_KEY
+python anomaly_detection.py
 ```
 
-**Run LLM pipeline** (requires Anthropic API key):
+**Launch dashboard (Next.js):**
 ```bash
-export ANTHROPIC_API_KEY=your_key_here
-python llm_pipeline.py
-```
-
-**Launch dashboard:**
-```bash
-streamlit run dashboard.py
+npm install
+npm run dev
 ```
 
 ---
@@ -148,25 +186,49 @@ streamlit run dashboard.py
 ## Project Structure
 
 ```
-honeypot-intelligence/
-├── personas.py              # Honeypot site definitions + Markov transition matrices
+phantom-trace/
+├── src/
+│   ├── app/
+│   │   ├── globals.css
+│   │   ├── layout.tsx
+│   │   └── page.tsx
+│   ├── components/
+│   │   ├── ui/
+│   │   ├── AnomalyDetection.tsx
+│   │   ├── AttackAnalysis.tsx
+│   │   ├── AttackerProfiles.tsx
+│   │   ├── FakerVSMarkov.tsx
+│   │   ├── Footer.tsx
+│   │   ├── MarkovGraph.tsx
+│   │   ├── Navigation.tsx
+│   │   └── Overview.tsx
+│   └── lib/
+│       └── types.ts
+├── public/
+│   └── data/                # JSON outputs (classification + anomaly results)
+├── personas.py              # Site definitions + Markov transition matrices (real-data calibrated)
 ├── faker_generator.py       # Random sampling log generator
 ├── markov_generator.py      # Markov chain log generator
 ├── main.py                  # Run both generators
 ├── llm_pipeline.py          # LLM classification + MBTI profiling
-├── dashboard.py             # Streamlit visualization dashboard
+├── anomaly_detection.py     # Isolation Forest (session-level + request-level)
 ├── requirements.txt
-└── README.md
+├── package.json
+├── tailwind.config.js
+├── tsconfig.json
+├── README.md
+└── docs/
+    └── real-observations/   # Screenshots from live sites (1-3 months)
 ```
 
 ---
 
 ## Key Findings
 
-- **LLM classification accuracy**: Faker `20%` · Markov `40%`  
-  Markov logs are classified twice as accurately — sequential context  
-  makes attacker intent legible to the LLM. The low absolute numbers  
-  reflect the challenge of classifying granular attack sub-types from  
+- **LLM classification accuracy**: Faker `20%` · Markov `40%`
+  Markov logs are classified twice as accurately — sequential context
+  makes attacker intent legible to the LLM. The low absolute numbers
+  reflect the challenge of classifying granular attack sub-types from
   HTTP logs alone, not a failure of the pipeline.
 - **Faker sessions show tighter anomaly clustering** — random distribution
   creates a cleaner baseline for Isolation Forest; Markov's sequential
@@ -179,8 +241,7 @@ honeypot-intelligence/
 - **ISTJ dominates** (25/40 sessions) — the majority of simulated
   attackers profile as methodical, systematic, and tool-driven rather
   than creative or adaptive
-- **Top archetypes**: The Credential Harvester · The Methodical
-  Cartographer · The Corporate Auditor
+- **Top archetypes**: The Credential Harvester · The Methodical Cartographer · The Corporate Auditor
 
 ---
 

@@ -1,0 +1,1468 @@
+[
+  {
+    "session_id": "20.100.161.16_site_a_developer",
+    "generator": "faker",
+    "site": "site_a_developer",
+    "country": "NO",
+    "features": {
+      "total_requests": 52,
+      "unique_paths": 32,
+      "methods": {
+        "GET": 48,
+        "POST": 4
+      },
+      "status_distribution": {
+        "404": 23,
+        "403": 8,
+        "200": 13,
+        "302": 1,
+        "400": 2,
+        "500": 3,
+        "401": 2
+      },
+      "attack_type_distribution": {
+        "framework_exploit": 13,
+        "aws_credential_probe": 8,
+        "reconnaissance": 8,
+        "env_probe": 10,
+        "api_key_probe": 6,
+        "oauth_abuse": 4,
+        "token_exfiltration": 3
+      },
+      "avg_interval_seconds": 7.43,
+      "timing_regularity_stdev": 4.76,
+      "sample_paths": [
+        "/site/wp-includes/wlwmanifest.xml",
+        "/.aws/config",
+        "/api/docs",
+        "/crm/.env",
+        "/site/wp-includes/wlwmanifest.xml",
+        "/xmlrpc.php",
+        "/.well-known/openid-configuration",
+        "/oauth/authorize"
+      ],
+      "site": "site_a_developer",
+      "country": "NO",
+      "user_agent": "Nuclei - Open-source project (github.com/projectdiscovery/nuclei)",
+      "generator": "faker"
+    },
+    "classification": {
+      "attack_type": "reconnaissance",
+      "threat_level": 6,
+      "intent_summary": "Automated vulnerability scanner conducting comprehensive reconnaissance across multiple attack vectors including AWS credentials, API endpoints, environment files, and OAuth configurations to identify exploitable vulnerabilities.",
+      "confidence": 0.9
+    },
+    "personality": {
+      "mbti_type": "ESTJ",
+      "label": "The Corporate Auditor",
+      "e_i_score": 0.7,
+      "s_n_score": -0.6,
+      "t_f_score": -0.8,
+      "j_p_score": -0.7,
+      "personality_description": "This attacker operates like a methodical corporate auditor, systematically scanning 32 unique paths across multiple known attack vectors using the automated Nuclei framework. They follow a disciplined reconnaissance approach, efficiently cataloging vulnerabilities across AWS credentials, API endpoints, and common framework exploits with machine-like precision and timing regularity. Their broad but systematic scanning style suggests someone who values comprehensive coverage over deep manual exploration.",
+      "threat_level": 6
+    },
+    "ground_truth_distribution": {
+      "framework_exploit": 13,
+      "aws_credential_probe": 8,
+      "reconnaissance": 8,
+      "env_probe": 10,
+      "api_key_probe": 6,
+      "oauth_abuse": 4,
+      "token_exfiltration": 3
+    }
+  },
+  {
+    "session_id": "167.99.173.37_site_b_dummy_company",
+    "generator": "faker",
+    "site": "site_b_dummy_company",
+    "country": "NL",
+    "features": {
+      "total_requests": 100,
+      "unique_paths": 30,
+      "methods": {
+        "POST": 27,
+        "GET": 73
+      },
+      "status_distribution": {
+        "429": 4,
+        "500": 5,
+        "400": 6,
+        "200": 44,
+        "403": 19,
+        "404": 11,
+        "422": 1,
+        "401": 8,
+        "302": 2
+      },
+      "attack_type_distribution": {
+        "credential_stuffing": 15,
+        "pii_scraping": 17,
+        "cms_attack": 16,
+        "reconnaissance": 20,
+        "env_probe": 8,
+        "payment_probe": 11,
+        "account_takeover": 13
+      },
+      "avg_interval_seconds": 101.44,
+      "timing_regularity_stdev": 42.1,
+      "sample_paths": [
+        "/api/auth/login",
+        "/api/v1/users/address",
+        "/wp-admin/admin-ajax.php",
+        "/robots.txt",
+        "/xmlrpc.php",
+        "/wp-admin/",
+        "/.env.bak",
+        "/api/v1/cards/add"
+      ],
+      "site": "site_b_dummy_company",
+      "country": "NL",
+      "user_agent": "python-requests/2.28.0",
+      "generator": "faker"
+    },
+    "classification": {
+      "attack_type": "reconnaissance",
+      "threat_level": 7,
+      "intent_summary": "The attacker is conducting comprehensive reconnaissance to map the target's attack surface, probing for vulnerabilities across authentication endpoints, user data access points, CMS installations, and payment systems. This appears to be initial intelligence gathering for a multi-vector attack campaign.",
+      "confidence": 0.85
+    },
+    "personality": {
+      "mbti_type": "INTJ",
+      "label": "The Methodical Cartographer",
+      "e_i_score": -0.6,
+      "s_n_score": 0.4,
+      "t_f_score": -0.8,
+      "j_p_score": -0.7,
+      "personality_description": "This attacker operates like a digital surveyor, systematically mapping the target's entire attack surface through methodical reconnaissance across multiple vectors. They demonstrate strategic patience and technical precision, using automated tools to efficiently probe authentication systems, CMS installations, and payment endpoints with calculated timing intervals. Their comprehensive approach suggests they're building detailed intelligence for a well-planned, multi-phase campaign rather than seeking quick opportunistic wins.",
+      "threat_level": 7
+    },
+    "ground_truth_distribution": {
+      "credential_stuffing": 15,
+      "pii_scraping": 17,
+      "cms_attack": 16,
+      "reconnaissance": 20,
+      "env_probe": 8,
+      "payment_probe": 11,
+      "account_takeover": 13
+    }
+  },
+  {
+    "session_id": "162.159.145.253_site_a_developer",
+    "generator": "faker",
+    "site": "site_a_developer",
+    "country": "US",
+    "features": {
+      "total_requests": 52,
+      "unique_paths": 27,
+      "methods": {
+        "GET": 47,
+        "POST": 5
+      },
+      "status_distribution": {
+        "404": 26,
+        "403": 5,
+        "200": 12,
+        "400": 5,
+        "401": 3,
+        "500": 1
+      },
+      "attack_type_distribution": {
+        "framework_exploit": 9,
+        "aws_credential_probe": 14,
+        "reconnaissance": 9,
+        "api_key_probe": 6,
+        "env_probe": 9,
+        "oauth_abuse": 4,
+        "token_exfiltration": 1
+      },
+      "avg_interval_seconds": 8.0,
+      "timing_regularity_stdev": 4.25,
+      "sample_paths": [
+        "/sito/wp-includes/wlwmanifest.xml",
+        "/cms/wp-includes/wlwmanifest.xml",
+        "/aws-exports.js",
+        "/sitemap.xml",
+        "/.aws/config",
+        "/robots.txt",
+        "/aws.env",
+        "/api/admin/keys"
+      ],
+      "site": "site_a_developer",
+      "country": "US",
+      "user_agent": "Go-http-client/2.0",
+      "generator": "faker"
+    },
+    "classification": {
+      "attack_type": "aws_credential_probe",
+      "threat_level": 7,
+      "intent_summary": "Automated attacker systematically probing for AWS credentials and configuration files across multiple attack vectors including environment files, config files, and API endpoints. The high volume of requests (52) with focus on credential harvesting indicates a sophisticated reconnaissance operation targeting cloud infrastructure secrets.",
+      "confidence": 0.85
+    },
+    "personality": {
+      "mbti_type": "ISTJ",
+      "label": "The Credential Harvester",
+      "e_i_score": -0.6,
+      "s_n_score": -0.7,
+      "t_f_score": -0.8,
+      "j_p_score": -0.7,
+      "personality_description": "This attacker operates like a methodical data miner, systematically probing for AWS credentials and configuration files using well-established attack patterns and automated tooling. They follow a disciplined reconnaissance approach with consistent 8-second intervals, focusing their energy on high-value cloud infrastructure secrets rather than broad exploration. Their behavior suggests a professional operator who prioritizes efficiency and proven techniques over creative discovery methods.",
+      "threat_level": 7
+    },
+    "ground_truth_distribution": {
+      "framework_exploit": 9,
+      "aws_credential_probe": 14,
+      "reconnaissance": 9,
+      "api_key_probe": 6,
+      "env_probe": 9,
+      "oauth_abuse": 4,
+      "token_exfiltration": 1
+    }
+  },
+  {
+    "session_id": "134.209.121.128_site_b_dummy_company",
+    "generator": "faker",
+    "site": "site_b_dummy_company",
+    "country": "NL",
+    "features": {
+      "total_requests": 100,
+      "unique_paths": 33,
+      "methods": {
+        "GET": 71,
+        "POST": 29
+      },
+      "status_distribution": {
+        "200": 44,
+        "403": 21,
+        "401": 10,
+        "404": 12,
+        "500": 3,
+        "400": 4,
+        "422": 3,
+        "429": 2,
+        "302": 1
+      },
+      "attack_type_distribution": {
+        "env_probe": 23,
+        "cms_attack": 13,
+        "payment_probe": 10,
+        "reconnaissance": 15,
+        "credential_stuffing": 18,
+        "pii_scraping": 13,
+        "account_takeover": 8
+      },
+      "avg_interval_seconds": 101.18,
+      "timing_regularity_stdev": 48.39,
+      "sample_paths": [
+        "/.env",
+        "/wp-admin/admin-ajax.php",
+        "/api/v1/payment/methods",
+        "/admin/customers.csv",
+        "/robots.txt",
+        "/.env",
+        "/login",
+        "/phpmyadmin/"
+      ],
+      "site": "site_b_dummy_company",
+      "country": "NL",
+      "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36",
+      "generator": "faker"
+    },
+    "classification": {
+      "attack_type": "reconnaissance",
+      "threat_level": 7,
+      "intent_summary": "This appears to be a comprehensive reconnaissance attack where the attacker is systematically probing multiple attack vectors including environment files, CMS vulnerabilities, payment systems, and admin interfaces to map the target's attack surface and identify potential entry points.",
+      "confidence": 0.85
+    },
+    "personality": {
+      "mbti_type": "ENTP",
+      "label": "The Multi-Vector Scout",
+      "e_i_score": 0.6,
+      "s_n_score": 0.4,
+      "t_f_score": -0.3,
+      "j_p_score": 0.7,
+      "personality_description": "This attacker demonstrates broad reconnaissance behavior, simultaneously probing multiple attack vectors from environment files to payment systems with opportunistic timing patterns. They combine systematic efficiency with creative exploration, testing both common vulnerabilities and unique endpoints to comprehensively map the target's attack surface. Their diverse attack type distribution and moderate request intervals suggest a methodical yet adaptable approach focused on intelligence gathering rather than immediate exploitation.",
+      "threat_level": 7
+    },
+    "ground_truth_distribution": {
+      "env_probe": 23,
+      "cms_attack": 13,
+      "payment_probe": 10,
+      "reconnaissance": 15,
+      "credential_stuffing": 18,
+      "pii_scraping": 13,
+      "account_takeover": 8
+    }
+  },
+  {
+    "session_id": "51.178.228.178_site_a_developer",
+    "generator": "faker",
+    "site": "site_a_developer",
+    "country": "FR",
+    "features": {
+      "total_requests": 52,
+      "unique_paths": 35,
+      "methods": {
+        "GET": 46,
+        "POST": 6
+      },
+      "status_distribution": {
+        "404": 21,
+        "200": 14,
+        "403": 9,
+        "400": 4,
+        "401": 3,
+        "500": 1
+      },
+      "attack_type_distribution": {
+        "aws_credential_probe": 11,
+        "framework_exploit": 12,
+        "env_probe": 11,
+        "api_key_probe": 6,
+        "reconnaissance": 4,
+        "oauth_abuse": 5,
+        "token_exfiltration": 3
+      },
+      "avg_interval_seconds": 7.98,
+      "timing_regularity_stdev": 4.43,
+      "sample_paths": [
+        "/.aws/credentials",
+        "/config/aws.json",
+        "/cms/wp-includes/wlwmanifest.xml",
+        "/.env.local",
+        "/swagger.json",
+        "/wp-config",
+        "/",
+        "/site/wp-includes/wlwmanifest.xml"
+      ],
+      "site": "site_a_developer",
+      "country": "FR",
+      "user_agent": "axios/1.6.7",
+      "generator": "faker"
+    },
+    "classification": {
+      "attack_type": "credential_harvesting",
+      "threat_level": 7,
+      "intent_summary": "Attacker is systematically probing for exposed credentials and configuration files, targeting AWS credentials, environment files, and framework-specific paths to harvest sensitive authentication data.",
+      "confidence": 0.85
+    },
+    "personality": {
+      "mbti_type": "ISTJ",
+      "label": "The Methodical Harvester",
+      "e_i_score": -0.7,
+      "s_n_score": -0.8,
+      "t_f_score": -0.9,
+      "j_p_score": -0.6,
+      "personality_description": "This attacker operates with surgical precision, systematically probing known credential storage locations using automated tools with consistent timing intervals. They follow established attack patterns targeting AWS credentials, environment files, and framework configurations rather than exploring creative attack vectors. Their methodical approach and focus on high-value authentication data suggests a professional operator seeking reliable credential harvesting rather than flashy exploitation.",
+      "threat_level": 7
+    },
+    "ground_truth_distribution": {
+      "aws_credential_probe": 11,
+      "framework_exploit": 12,
+      "env_probe": 11,
+      "api_key_probe": 6,
+      "reconnaissance": 4,
+      "oauth_abuse": 5,
+      "token_exfiltration": 3
+    }
+  },
+  {
+    "session_id": "18.185.20.242_site_a_developer",
+    "generator": "faker",
+    "site": "site_a_developer",
+    "country": "DE",
+    "features": {
+      "total_requests": 52,
+      "unique_paths": 29,
+      "methods": {
+        "GET": 43,
+        "POST": 9
+      },
+      "status_distribution": {
+        "404": 19,
+        "401": 5,
+        "500": 1,
+        "200": 15,
+        "400": 4,
+        "403": 8
+      },
+      "attack_type_distribution": {
+        "framework_exploit": 13,
+        "oauth_abuse": 9,
+        "token_exfiltration": 4,
+        "aws_credential_probe": 7,
+        "api_key_probe": 7,
+        "env_probe": 9,
+        "reconnaissance": 3
+      },
+      "avg_interval_seconds": 7.51,
+      "timing_regularity_stdev": 4.51,
+      "sample_paths": [
+        "/cms/wp-includes/wlwmanifest.xml",
+        "/oauth/token",
+        "/api/v1/users/export",
+        "/oauth/authorize",
+        "/awsconfig.js",
+        "/swagger.json",
+        "/.env.bak",
+        "/members/login/"
+      ],
+      "site": "site_a_developer",
+      "country": "DE",
+      "user_agent": "curl/8.1.2",
+      "generator": "faker"
+    },
+    "classification": {
+      "attack_type": "reconnaissance",
+      "threat_level": 7,
+      "intent_summary": "Attacker is conducting comprehensive reconnaissance across multiple attack vectors, probing for OAuth endpoints, AWS credentials, API keys, environment files, and framework vulnerabilities to identify exploitable entry points.",
+      "confidence": 0.85
+    },
+    "personality": {
+      "mbti_type": "ENTP",
+      "label": "The Reconnaissance Wanderer",
+      "e_i_score": 0.6,
+      "s_n_score": 0.4,
+      "t_f_score": -0.3,
+      "j_p_score": 0.7,
+      "personality_description": "This attacker operates as a curious explorer, casting a wide net across multiple attack vectors with moderate efficiency but high adaptability. They probe systematically through known vulnerabilities and endpoints while remaining opportunistic enough to explore unconventional paths like backup environment files and AWS configurations. Their moderate pacing (7.51 second intervals) and diverse target selection reveals a methodical yet flexible approach to reconnaissance, preferring to map the entire attack surface before committing to specific exploitation paths.",
+      "threat_level": 7
+    },
+    "ground_truth_distribution": {
+      "framework_exploit": 13,
+      "oauth_abuse": 9,
+      "token_exfiltration": 4,
+      "aws_credential_probe": 7,
+      "api_key_probe": 7,
+      "env_probe": 9,
+      "reconnaissance": 3
+    }
+  },
+  {
+    "session_id": "91.108.42.128_site_b_dummy_company",
+    "generator": "faker",
+    "site": "site_b_dummy_company",
+    "country": "RU",
+    "features": {
+      "total_requests": 100,
+      "unique_paths": 33,
+      "methods": {
+        "POST": 32,
+        "GET": 68
+      },
+      "status_distribution": {
+        "404": 15,
+        "200": 42,
+        "401": 13,
+        "302": 2,
+        "403": 12,
+        "400": 11,
+        "422": 1,
+        "500": 2,
+        "429": 2
+      },
+      "attack_type_distribution": {
+        "credential_stuffing": 15,
+        "reconnaissance": 16,
+        "env_probe": 15,
+        "cms_attack": 20,
+        "pii_scraping": 14,
+        "payment_probe": 11,
+        "account_takeover": 9
+      },
+      "avg_interval_seconds": 107.19,
+      "timing_regularity_stdev": 46.36,
+      "sample_paths": [
+        "/customer/login",
+        "/robots.txt",
+        "/.env",
+        "/wp-login.php",
+        "/wp-admin/",
+        "/wp-login.php",
+        "/xmlrpc.php",
+        "/api/"
+      ],
+      "site": "site_b_dummy_company",
+      "country": "RU",
+      "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36",
+      "generator": "faker"
+    },
+    "classification": {
+      "attack_type": "reconnaissance",
+      "threat_level": 6,
+      "intent_summary": "The attacker is conducting broad reconnaissance to map the target's infrastructure and identify vulnerabilities, probing for WordPress installations, environment files, login endpoints, and API access points. This appears to be initial intelligence gathering for a more targeted attack campaign.",
+      "confidence": 0.85
+    },
+    "personality": {
+      "mbti_type": "ENTP",
+      "label": "The Infrastructure Scout",
+      "e_i_score": 0.7,
+      "s_n_score": 0.4,
+      "t_f_score": -0.6,
+      "j_p_score": 0.5,
+      "personality_description": "This attacker operates as a methodical intelligence gatherer, casting a wide net across 33 unique paths to systematically map the target's infrastructure and identify attack vectors. They employ both established reconnaissance techniques (robots.txt, .env files, WordPress probes) and creative exploration of APIs and endpoints, suggesting a blend of proven methodology with adaptive discovery. Their consistent timing pattern and diverse attack type portfolio indicates a disciplined yet opportunistic approach to vulnerability assessment.",
+      "threat_level": 6
+    },
+    "ground_truth_distribution": {
+      "credential_stuffing": 15,
+      "reconnaissance": 16,
+      "env_probe": 15,
+      "cms_attack": 20,
+      "pii_scraping": 14,
+      "payment_probe": 11,
+      "account_takeover": 9
+    }
+  },
+  {
+    "session_id": "185.220.71.98_site_b_dummy_company",
+    "generator": "faker",
+    "site": "site_b_dummy_company",
+    "country": "RU",
+    "features": {
+      "total_requests": 100,
+      "unique_paths": 33,
+      "methods": {
+        "POST": 22,
+        "GET": 78
+      },
+      "status_distribution": {
+        "429": 4,
+        "200": 48,
+        "302": 6,
+        "401": 5,
+        "404": 13,
+        "403": 16,
+        "500": 1,
+        "400": 6,
+        "422": 1
+      },
+      "attack_type_distribution": {
+        "credential_stuffing": 11,
+        "reconnaissance": 20,
+        "cms_attack": 11,
+        "account_takeover": 13,
+        "payment_probe": 11,
+        "pii_scraping": 12,
+        "env_probe": 22
+      },
+      "avg_interval_seconds": 111.7,
+      "timing_regularity_stdev": 43.53,
+      "sample_paths": [
+        "/api/auth/login",
+        "/api/auth/login",
+        "/robots.txt",
+        "/wp-admin/",
+        "/customer/login",
+        "/",
+        "/cms/wp-includes/wlwmanifest.xml",
+        "/account/profile"
+      ],
+      "site": "site_b_dummy_company",
+      "country": "RU",
+      "user_agent": "python-requests/2.28.0",
+      "generator": "faker"
+    },
+    "classification": {
+      "attack_type": "reconnaissance",
+      "threat_level": 7,
+      "intent_summary": "Automated reconnaissance bot systematically mapping application attack surface and identifying vulnerable endpoints across authentication, CMS, payment, and data access systems. The attacker is conducting broad intelligence gathering to prepare for targeted exploitation.",
+      "confidence": 0.85
+    },
+    "personality": {
+      "mbti_type": "ESTJ",
+      "label": "The Corporate Surveyor",
+      "e_i_score": 0.7,
+      "s_n_score": -0.6,
+      "t_f_score": -0.8,
+      "j_p_score": -0.7,
+      "personality_description": "This attacker operates like a methodical business analyst, systematically cataloging every possible attack surface with corporate-level efficiency. Using automated tools and known reconnaissance patterns, they create comprehensive vulnerability maps across multiple attack vectors with military precision. Their approach suggests a professional threat actor building intelligence for either sale or future coordinated campaigns.",
+      "threat_level": 7
+    },
+    "ground_truth_distribution": {
+      "credential_stuffing": 11,
+      "reconnaissance": 20,
+      "cms_attack": 11,
+      "account_takeover": 13,
+      "payment_probe": 11,
+      "pii_scraping": 12,
+      "env_probe": 22
+    }
+  },
+  {
+    "session_id": "141.94.201.79_site_a_developer",
+    "generator": "faker",
+    "site": "site_a_developer",
+    "country": "FR",
+    "features": {
+      "total_requests": 52,
+      "unique_paths": 28,
+      "methods": {
+        "GET": 50,
+        "POST": 2
+      },
+      "status_distribution": {
+        "200": 18,
+        "404": 16,
+        "403": 9,
+        "500": 5,
+        "401": 3,
+        "400": 1
+      },
+      "attack_type_distribution": {
+        "framework_exploit": 16,
+        "env_probe": 11,
+        "token_exfiltration": 3,
+        "api_key_probe": 9,
+        "reconnaissance": 6,
+        "oauth_abuse": 1,
+        "aws_credential_probe": 6
+      },
+      "avg_interval_seconds": 8.12,
+      "timing_regularity_stdev": 4.44,
+      "sample_paths": [
+        "/members/login/",
+        "/crm/.env",
+        "/api/v1/users/export",
+        "/swagger.json",
+        "/_ignition/execute-solution",
+        "/xmlrpc.php",
+        "/config.env",
+        "/api/v1/"
+      ],
+      "site": "site_a_developer",
+      "country": "FR",
+      "user_agent": "Go-http-client/2.0",
+      "generator": "faker"
+    },
+    "classification": {
+      "attack_type": "reconnaissance",
+      "threat_level": 7,
+      "intent_summary": "Automated reconnaissance bot systematically probing for vulnerabilities, sensitive files, and credentials across multiple attack vectors including framework exploits, environment files, and API endpoints. The attacker is mapping the application's attack surface to identify exploitable weaknesses.",
+      "confidence": 0.85
+    },
+    "personality": {
+      "mbti_type": "ISTJ",
+      "label": "The Methodical Mapper",
+      "e_i_score": -0.7,
+      "s_n_score": -0.6,
+      "t_f_score": -0.8,
+      "j_p_score": -0.5,
+      "personality_description": "This attacker operates like a systematic surveyor, methodically cataloging known vulnerabilities and sensitive endpoints with machine-like precision. Using established reconnaissance patterns and proven exploit techniques, they maintain consistent timing intervals while building a comprehensive map of the target's attack surface. Their automated approach prioritizes efficiency and thoroughness over stealth, suggesting a patient operator who values complete intelligence gathering before moving to exploitation phases.",
+      "threat_level": 7
+    },
+    "ground_truth_distribution": {
+      "framework_exploit": 16,
+      "env_probe": 11,
+      "token_exfiltration": 3,
+      "api_key_probe": 9,
+      "reconnaissance": 6,
+      "oauth_abuse": 1,
+      "aws_credential_probe": 6
+    }
+  },
+  {
+    "session_id": "20.100.213.15_site_a_developer",
+    "generator": "faker",
+    "site": "site_a_developer",
+    "country": "NO",
+    "features": {
+      "total_requests": 52,
+      "unique_paths": 26,
+      "methods": {
+        "GET": 50,
+        "POST": 2
+      },
+      "status_distribution": {
+        "200": 13,
+        "403": 8,
+        "404": 28,
+        "500": 1,
+        "401": 1,
+        "302": 1
+      },
+      "attack_type_distribution": {
+        "reconnaissance": 4,
+        "framework_exploit": 11,
+        "aws_credential_probe": 6,
+        "env_probe": 19,
+        "token_exfiltration": 5,
+        "api_key_probe": 4,
+        "oauth_abuse": 3
+      },
+      "avg_interval_seconds": 8.08,
+      "timing_regularity_stdev": 4.63,
+      "sample_paths": [
+        "/",
+        "/api/docs",
+        "/xmlrpc.php",
+        "/cms/wp-includes/wlwmanifest.xml",
+        "/awsconfiguration.js",
+        "/config/aws.json",
+        "/admin/serverConfig.json",
+        "/.env"
+      ],
+      "site": "site_a_developer",
+      "country": "NO",
+      "user_agent": "sqlmap/1.7.12#stable (https://sqlmap.org)",
+      "generator": "faker"
+    },
+    "classification": {
+      "attack_type": "reconnaissance",
+      "threat_level": 7,
+      "intent_summary": "Attacker is conducting comprehensive reconnaissance across multiple attack vectors, systematically probing for AWS credentials, environment variables, framework vulnerabilities, and API documentation to identify exploitable weaknesses in the target system.",
+      "confidence": 0.85
+    },
+    "personality": {
+      "mbti_type": "INTJ",
+      "label": "The System Archaeologist",
+      "e_i_score": -0.6,
+      "s_n_score": 0.3,
+      "t_f_score": -0.8,
+      "j_p_score": -0.7,
+      "personality_description": "This attacker methodically excavates system architectures like a digital archaeologist, using automated tools to systematically probe for configuration files, credentials, and framework vulnerabilities across multiple attack vectors. They follow a disciplined reconnaissance approach with consistent timing intervals, efficiently cataloguing potential entry points before moving to exploitation phases. Their strategic use of sqlmap and targeted probing of AWS configurations, environment files, and API documentation reveals a calculated intelligence gatherer building a comprehensive attack map.",
+      "threat_level": 7
+    },
+    "ground_truth_distribution": {
+      "reconnaissance": 4,
+      "framework_exploit": 11,
+      "aws_credential_probe": 6,
+      "env_probe": 19,
+      "token_exfiltration": 5,
+      "api_key_probe": 4,
+      "oauth_abuse": 3
+    }
+  },
+  {
+    "session_id": "16.16.20.14_site_b_dummy_company",
+    "generator": "faker",
+    "site": "site_b_dummy_company",
+    "country": "SE",
+    "features": {
+      "total_requests": 100,
+      "unique_paths": 32,
+      "methods": {
+        "POST": 34,
+        "GET": 66
+      },
+      "status_distribution": {
+        "200": 39,
+        "302": 5,
+        "404": 16,
+        "429": 2,
+        "400": 5,
+        "403": 11,
+        "422": 8,
+        "500": 5,
+        "401": 9
+      },
+      "attack_type_distribution": {
+        "credential_stuffing": 13,
+        "cms_attack": 23,
+        "reconnaissance": 17,
+        "env_probe": 16,
+        "pii_scraping": 13,
+        "payment_probe": 12,
+        "account_takeover": 6
+      },
+      "avg_interval_seconds": 112.46,
+      "timing_regularity_stdev": 44.71,
+      "sample_paths": [
+        "/members/login/",
+        "/wp-admin/",
+        "/cms/wp-includes/wlwmanifest.xml",
+        "/phpmyadmin/",
+        "/sitemap.xml",
+        "/api/auth/login",
+        "/",
+        "/wp-admin/admin-ajax.php"
+      ],
+      "site": "site_b_dummy_company",
+      "country": "SE",
+      "user_agent": "Scrapy/2.11.0 (+https://scrapy.org)",
+      "generator": "faker"
+    },
+    "classification": {
+      "attack_type": "reconnaissance",
+      "threat_level": 6,
+      "intent_summary": "The attacker is conducting broad reconnaissance using automated tools to discover vulnerable services and potential attack vectors across multiple system components. This appears to be initial intelligence gathering for a larger multi-stage attack campaign.",
+      "confidence": 0.85
+    },
+    "personality": {
+      "mbti_type": "ENTJ",
+      "label": "The Systematic Surveyor",
+      "e_i_score": 0.7,
+      "s_n_score": -0.6,
+      "t_f_score": -0.8,
+      "j_p_score": -0.7,
+      "personality_description": "This attacker operates like a methodical intelligence officer, using automated tools to efficiently map target infrastructure across multiple attack vectors simultaneously. They follow a disciplined reconnaissance methodology, systematically probing known vulnerabilities while maintaining consistent timing patterns to avoid detection. Their approach suggests they're building comprehensive target profiles as groundwork for future sophisticated attacks.",
+      "threat_level": 6
+    },
+    "ground_truth_distribution": {
+      "credential_stuffing": 13,
+      "cms_attack": 23,
+      "reconnaissance": 17,
+      "env_probe": 16,
+      "pii_scraping": 13,
+      "payment_probe": 12,
+      "account_takeover": 6
+    }
+  },
+  {
+    "session_id": "188.166.197.174_site_a_developer",
+    "generator": "faker",
+    "site": "site_a_developer",
+    "country": "NL",
+    "features": {
+      "total_requests": 52,
+      "unique_paths": 28,
+      "methods": {
+        "GET": 47,
+        "POST": 5
+      },
+      "status_distribution": {
+        "500": 3,
+        "404": 15,
+        "200": 20,
+        "401": 2,
+        "403": 10,
+        "400": 1,
+        "302": 1
+      },
+      "attack_type_distribution": {
+        "env_probe": 11,
+        "api_key_probe": 8,
+        "aws_credential_probe": 7,
+        "reconnaissance": 3,
+        "framework_exploit": 15,
+        "oauth_abuse": 4,
+        "token_exfiltration": 4
+      },
+      "avg_interval_seconds": 6.67,
+      "timing_regularity_stdev": 4.18,
+      "sample_paths": [
+        "/config.env",
+        "/.env.live",
+        "/api/v1/",
+        "/config.env",
+        "/config/aws.json",
+        "/.env.local",
+        "/robots.txt",
+        "/members/login/"
+      ],
+      "site": "site_a_developer",
+      "country": "NL",
+      "user_agent": "curl/7.88.1",
+      "generator": "faker"
+    },
+    "classification": {
+      "attack_type": "credential_harvesting",
+      "threat_level": 7,
+      "intent_summary": "Attacker is systematically probing for exposed configuration files and API endpoints to harvest credentials, particularly targeting environment files, AWS credentials, and API keys. The focused nature of requests and moderate automation suggests a credential theft operation targeting the developer site.",
+      "confidence": 0.85
+    },
+    "personality": {
+      "mbti_type": "ISTJ",
+      "label": "The Methodical Harvester",
+      "e_i_score": -0.7,
+      "s_n_score": -0.8,
+      "t_f_score": -0.6,
+      "j_p_score": -0.4,
+      "personality_description": "This attacker operates with systematic precision, methodically targeting known credential storage locations like .env files and AWS configuration endpoints rather than exploring creative attack vectors. They employ a disciplined, automated approach with consistent timing intervals, focusing their energy on a specific target (developer site) rather than broad scanning. Their behavior suggests a calculated professional who relies on proven techniques and follows a structured playbook to efficiently harvest credentials.",
+      "threat_level": 7
+    },
+    "ground_truth_distribution": {
+      "env_probe": 11,
+      "api_key_probe": 8,
+      "aws_credential_probe": 7,
+      "reconnaissance": 3,
+      "framework_exploit": 15,
+      "oauth_abuse": 4,
+      "token_exfiltration": 4
+    }
+  },
+  {
+    "session_id": "51.178.98.13_site_a_developer",
+    "generator": "faker",
+    "site": "site_a_developer",
+    "country": "FR",
+    "features": {
+      "total_requests": 52,
+      "unique_paths": 28,
+      "methods": {
+        "GET": 44,
+        "POST": 8
+      },
+      "status_distribution": {
+        "404": 17,
+        "200": 11,
+        "403": 13,
+        "401": 5,
+        "500": 5,
+        "400": 1
+      },
+      "attack_type_distribution": {
+        "env_probe": 11,
+        "reconnaissance": 5,
+        "framework_exploit": 16,
+        "api_key_probe": 3,
+        "token_exfiltration": 6,
+        "oauth_abuse": 5,
+        "aws_credential_probe": 6
+      },
+      "avg_interval_seconds": 7.98,
+      "timing_regularity_stdev": 4.33,
+      "sample_paths": [
+        "/config.env",
+        "/.env.example",
+        "/robots.txt",
+        "/admin/serverConfig.json",
+        "/admin/serverConfig.json",
+        "/swagger.json",
+        "/.env.local",
+        "/.env.bak"
+      ],
+      "site": "site_a_developer",
+      "country": "FR",
+      "user_agent": "python-requests/2.28.0",
+      "generator": "faker"
+    },
+    "classification": {
+      "attack_type": "reconnaissance",
+      "threat_level": 7,
+      "intent_summary": "Attacker is conducting systematic reconnaissance to discover sensitive configuration files, environment variables, and API endpoints that could expose credentials or system information. The focus on .env files, config files, and swagger documentation indicates preparation for a more targeted attack.",
+      "confidence": 0.85
+    },
+    "personality": {
+      "mbti_type": "ISTJ",
+      "label": "The Configuration Hunter",
+      "e_i_score": -0.6,
+      "s_n_score": -0.7,
+      "t_f_score": -0.8,
+      "j_p_score": -0.5,
+      "personality_description": "This attacker demonstrates methodical, systematic behavior with a clear focus on well-known configuration files and environment variables rather than exploring unknown endpoints. They operate with automated tools (python-requests) in a structured reconnaissance phase, following established attack patterns to systematically enumerate common sensitive files. Their consistent timing intervals and targeted approach to .env files, config files, and API documentation suggests a disciplined, process-driven attacker who relies on proven techniques rather than creative exploration.",
+      "threat_level": 7
+    },
+    "ground_truth_distribution": {
+      "env_probe": 11,
+      "reconnaissance": 5,
+      "framework_exploit": 16,
+      "api_key_probe": 3,
+      "token_exfiltration": 6,
+      "oauth_abuse": 5,
+      "aws_credential_probe": 6
+    }
+  },
+  {
+    "session_id": "18.185.91.43_site_a_developer",
+    "generator": "faker",
+    "site": "site_a_developer",
+    "country": "DE",
+    "features": {
+      "total_requests": 52,
+      "unique_paths": 28,
+      "methods": {
+        "GET": 51,
+        "POST": 1
+      },
+      "status_distribution": {
+        "404": 21,
+        "200": 10,
+        "400": 3,
+        "403": 12,
+        "401": 2,
+        "500": 3,
+        "302": 1
+      },
+      "attack_type_distribution": {
+        "framework_exploit": 10,
+        "env_probe": 11,
+        "reconnaissance": 2,
+        "aws_credential_probe": 10,
+        "api_key_probe": 13,
+        "token_exfiltration": 4,
+        "oauth_abuse": 2
+      },
+      "avg_interval_seconds": 8.39,
+      "timing_regularity_stdev": 4.28,
+      "sample_paths": [
+        "/cms/wp-includes/wlwmanifest.xml",
+        "/sito/wp-includes/wlwmanifest.xml",
+        "/.env.live",
+        "/cms/wp-includes/wlwmanifest.xml",
+        "/robots.txt",
+        "/awsconfig.js",
+        "/.env.local",
+        "/config.env"
+      ],
+      "site": "site_a_developer",
+      "country": "DE",
+      "user_agent": "Mozilla/5.0 zgrab/0.x",
+      "generator": "faker"
+    },
+    "classification": {
+      "attack_type": "api_key_probe",
+      "threat_level": 6,
+      "intent_summary": "Attacker is systematically probing for exposed configuration files, environment variables, and API credentials across various paths, with a focus on harvesting sensitive authentication tokens and keys.",
+      "confidence": 0.85
+    },
+    "personality": {
+      "mbti_type": "ISTJ",
+      "label": "The Credential Harvester",
+      "e_i_score": -0.6,
+      "s_n_score": -0.7,
+      "t_f_score": -0.8,
+      "j_p_score": -0.5,
+      "personality_description": "This attacker operates like a methodical data miner, systematically probing known configuration file paths and environment variable locations with automated precision. They follow established attack patterns targeting common credential storage locations (/.env files, config files, AWS configurations) rather than exploring creative or unknown endpoints. Their consistent 8.39-second intervals and use of zgrab tooling demonstrates a disciplined, efficiency-focused approach prioritizing volume and systematic coverage over stealth or innovation.",
+      "threat_level": 6
+    },
+    "ground_truth_distribution": {
+      "framework_exploit": 10,
+      "env_probe": 11,
+      "reconnaissance": 2,
+      "aws_credential_probe": 10,
+      "api_key_probe": 13,
+      "token_exfiltration": 4,
+      "oauth_abuse": 2
+    }
+  },
+  {
+    "session_id": "51.89.67.184_site_b_dummy_company",
+    "generator": "faker",
+    "site": "site_b_dummy_company",
+    "country": "GB",
+    "features": {
+      "total_requests": 100,
+      "unique_paths": 32,
+      "methods": {
+        "GET": 69,
+        "POST": 31
+      },
+      "status_distribution": {
+        "400": 9,
+        "401": 11,
+        "200": 40,
+        "403": 19,
+        "500": 5,
+        "422": 2,
+        "404": 12,
+        "302": 1,
+        "429": 1
+      },
+      "attack_type_distribution": {
+        "reconnaissance": 18,
+        "credential_stuffing": 15,
+        "env_probe": 22,
+        "payment_probe": 13,
+        "cms_attack": 17,
+        "account_takeover": 6,
+        "pii_scraping": 9
+      },
+      "avg_interval_seconds": 110.11,
+      "timing_regularity_stdev": 46.55,
+      "sample_paths": [
+        "/sitemap.xml",
+        "/login",
+        "/.env",
+        "/members/login/",
+        "/login",
+        "/backup/db.sql",
+        "/backup/db.sql",
+        "/api/v1/cards/add"
+      ],
+      "site": "site_b_dummy_company",
+      "country": "GB",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+      "generator": "faker"
+    },
+    "classification": {
+      "attack_type": "reconnaissance",
+      "threat_level": 7,
+      "intent_summary": "The attacker is conducting systematic reconnaissance to map the target's infrastructure and identify vulnerabilities, including probing for environment files, backups, login endpoints, and payment systems. This appears to be preliminary intelligence gathering for a larger multi-stage attack.",
+      "confidence": 0.85
+    },
+    "personality": {
+      "mbti_type": "ISTJ",
+      "label": "The Methodical Surveyor",
+      "e_i_score": -0.7,
+      "s_n_score": -0.8,
+      "t_f_score": -0.9,
+      "j_p_score": -0.6,
+      "personality_description": "This attacker follows a systematic, methodical approach to reconnaissance, targeting well-known vulnerable endpoints like .env files, backup databases, and standard login pages with machine-like precision. They prefer automated tools and established attack patterns rather than creative exploration, maintaining steady intervals between requests to avoid detection. Their disciplined, phase-based reconnaissance suggests they're gathering intelligence for a carefully planned future attack campaign.",
+      "threat_level": 7
+    },
+    "ground_truth_distribution": {
+      "reconnaissance": 18,
+      "credential_stuffing": 15,
+      "env_probe": 22,
+      "payment_probe": 13,
+      "cms_attack": 17,
+      "account_takeover": 6,
+      "pii_scraping": 9
+    }
+  },
+  {
+    "session_id": "172.67.86.229_site_a_developer",
+    "generator": "faker",
+    "site": "site_a_developer",
+    "country": "US",
+    "features": {
+      "total_requests": 52,
+      "unique_paths": 28,
+      "methods": {
+        "GET": 49,
+        "POST": 3
+      },
+      "status_distribution": {
+        "200": 11,
+        "404": 17,
+        "403": 17,
+        "401": 2,
+        "400": 3,
+        "500": 2
+      },
+      "attack_type_distribution": {
+        "reconnaissance": 7,
+        "env_probe": 8,
+        "framework_exploit": 16,
+        "oauth_abuse": 2,
+        "aws_credential_probe": 11,
+        "token_exfiltration": 2,
+        "api_key_probe": 6
+      },
+      "avg_interval_seconds": 8.78,
+      "timing_regularity_stdev": 4.5,
+      "sample_paths": [
+        "/robots.txt",
+        "/health",
+        "/api/docs",
+        "/.env.bak",
+        "/xmlrpc.php",
+        "/admin/serverConfig.json",
+        "/api/v1/auth/refresh",
+        "/wp-login.php"
+      ],
+      "site": "site_a_developer",
+      "country": "US",
+      "user_agent": "Mozilla/5.0 zgrab/0.x",
+      "generator": "faker"
+    },
+    "classification": {
+      "attack_type": "reconnaissance",
+      "threat_level": 6,
+      "intent_summary": "Automated reconnaissance scan probing for vulnerabilities, exposed configuration files, and potential attack vectors across multiple frameworks and services. The attacker is systematically mapping the target's infrastructure and identifying exploitable endpoints.",
+      "confidence": 0.85
+    },
+    "personality": {
+      "mbti_type": "ISTJ",
+      "label": "The Methodical Mapper",
+      "e_i_score": -0.7,
+      "s_n_score": -0.8,
+      "t_f_score": -0.9,
+      "j_p_score": -0.6,
+      "personality_description": "This attacker operates like a digital surveyor, systematically cataloging every exploitable surface with automated precision and patience. They rely heavily on established reconnaissance techniques and known vulnerability patterns, preferring thorough enumeration over creative exploration. Their consistent timing intervals and structured approach to target mapping suggests a methodical personality that values completeness and reliability over speed or innovation.",
+      "threat_level": 6
+    },
+    "ground_truth_distribution": {
+      "reconnaissance": 7,
+      "env_probe": 8,
+      "framework_exploit": 16,
+      "oauth_abuse": 2,
+      "aws_credential_probe": 11,
+      "token_exfiltration": 2,
+      "api_key_probe": 6
+    }
+  },
+  {
+    "session_id": "34.67.189.132_site_a_developer",
+    "generator": "faker",
+    "site": "site_a_developer",
+    "country": "US",
+    "features": {
+      "total_requests": 52,
+      "unique_paths": 28,
+      "methods": {
+        "GET": 46,
+        "POST": 6
+      },
+      "status_distribution": {
+        "404": 18,
+        "200": 11,
+        "403": 12,
+        "500": 5,
+        "401": 5,
+        "400": 1
+      },
+      "attack_type_distribution": {
+        "aws_credential_probe": 10,
+        "reconnaissance": 5,
+        "framework_exploit": 17,
+        "token_exfiltration": 5,
+        "env_probe": 7,
+        "oauth_abuse": 4,
+        "api_key_probe": 4
+      },
+      "avg_interval_seconds": 7.86,
+      "timing_regularity_stdev": 4.03,
+      "sample_paths": [
+        "/aws-exports.js",
+        "/",
+        "/admin/serverConfig.json",
+        "/api/v1/users/export",
+        "/_ignition/execute-solution",
+        "/cms/wp-includes/wlwmanifest.xml",
+        "/aws.env",
+        "/cms/wp-includes/wlwmanifest.xml"
+      ],
+      "site": "site_a_developer",
+      "country": "US",
+      "user_agent": "python-requests/2.28.0",
+      "generator": "faker"
+    },
+    "classification": {
+      "attack_type": "reconnaissance",
+      "threat_level": 7,
+      "intent_summary": "Attacker is conducting comprehensive reconnaissance against a developer environment, systematically probing for AWS credentials, configuration files, API endpoints, and exploitable frameworks. This appears to be initial intelligence gathering for a multi-stage attack targeting cloud resources and sensitive data.",
+      "confidence": 0.85
+    },
+    "personality": {
+      "mbti_type": "INTJ",
+      "label": "The Methodical Architect",
+      "e_i_score": -0.7,
+      "s_n_score": 0.4,
+      "t_f_score": -0.8,
+      "j_p_score": -0.6,
+      "personality_description": "This attacker operates with surgical precision, conducting systematic reconnaissance against developer environments with a clear strategic vision. They blend automated tooling (python-requests) with intelligent target selection, focusing on high-value cloud credentials and configuration files rather than spray-and-pray tactics. Their methodical approach and consistent timing patterns suggest a disciplined professional preparing the groundwork for a sophisticated multi-stage attack campaign.",
+      "threat_level": 7
+    },
+    "ground_truth_distribution": {
+      "aws_credential_probe": 10,
+      "reconnaissance": 5,
+      "framework_exploit": 17,
+      "token_exfiltration": 5,
+      "env_probe": 7,
+      "oauth_abuse": 4,
+      "api_key_probe": 4
+    }
+  },
+  {
+    "session_id": "172.67.24.143_site_b_dummy_company",
+    "generator": "faker",
+    "site": "site_b_dummy_company",
+    "country": "US",
+    "features": {
+      "total_requests": 100,
+      "unique_paths": 32,
+      "methods": {
+        "POST": 29,
+        "GET": 71
+      },
+      "status_distribution": {
+        "401": 10,
+        "302": 2,
+        "200": 40,
+        "500": 6,
+        "404": 13,
+        "429": 1,
+        "400": 11,
+        "403": 17
+      },
+      "attack_type_distribution": {
+        "credential_stuffing": 14,
+        "cms_attack": 11,
+        "reconnaissance": 19,
+        "env_probe": 18,
+        "account_takeover": 9,
+        "pii_scraping": 13,
+        "payment_probe": 16
+      },
+      "avg_interval_seconds": 109.4,
+      "timing_regularity_stdev": 45.3,
+      "sample_paths": [
+        "/customer/login",
+        "/wp-admin/",
+        "/.env",
+        "/robots.txt",
+        "/.env.bak",
+        "/account/orders",
+        "/customer/login",
+        "/"
+      ],
+      "site": "site_b_dummy_company",
+      "country": "US",
+      "user_agent": "Go-http-client/2.0",
+      "generator": "faker"
+    },
+    "classification": {
+      "attack_type": "reconnaissance",
+      "threat_level": 7,
+      "intent_summary": "Attacker is conducting comprehensive reconnaissance to map the target system's infrastructure, identify vulnerabilities, and gather intelligence for potential follow-up attacks including credential stuffing and data exfiltration.",
+      "confidence": 0.85
+    },
+    "personality": {
+      "mbti_type": "ENTJ",
+      "label": "The Strategic Surveyor",
+      "e_i_score": 0.6,
+      "s_n_score": 0.4,
+      "t_f_score": -0.7,
+      "j_p_score": -0.8,
+      "personality_description": "This attacker operates like a methodical general surveying the battlefield, systematically probing multiple attack vectors (credential stuffing, CMS attacks, env probes) with calculated precision. Using automated tooling (Go-http-client) and maintaining consistent timing patterns, they efficiently map target infrastructure while covering their tracks with diverse attack types to avoid detection. Their comprehensive reconnaissance approach suggests a highly organized threat actor preparing for a larger coordinated campaign.",
+      "threat_level": 7
+    },
+    "ground_truth_distribution": {
+      "credential_stuffing": 14,
+      "cms_attack": 11,
+      "reconnaissance": 19,
+      "env_probe": 18,
+      "account_takeover": 9,
+      "pii_scraping": 13,
+      "payment_probe": 16
+    }
+  },
+  {
+    "session_id": "167.99.97.22_site_a_developer",
+    "generator": "faker",
+    "site": "site_a_developer",
+    "country": "NL",
+    "features": {
+      "total_requests": 52,
+      "unique_paths": 30,
+      "methods": {
+        "GET": 46,
+        "POST": 6
+      },
+      "status_distribution": {
+        "403": 7,
+        "404": 18,
+        "400": 3,
+        "200": 19,
+        "500": 1,
+        "401": 4
+      },
+      "attack_type_distribution": {
+        "framework_exploit": 14,
+        "aws_credential_probe": 7,
+        "token_exfiltration": 5,
+        "reconnaissance": 6,
+        "env_probe": 10,
+        "oauth_abuse": 4,
+        "api_key_probe": 6
+      },
+      "avg_interval_seconds": 6.94,
+      "timing_regularity_stdev": 4.46,
+      "sample_paths": [
+        "/admin/serverConfig.json",
+        "/aws-exports.js",
+        "/api/v1/users/export",
+        "/api/v1/billing",
+        "/sitemap.xml",
+        "/.env.example",
+        "/robots.txt",
+        "/api/v1/billing"
+      ],
+      "site": "site_a_developer",
+      "country": "NL",
+      "user_agent": "sqlmap/1.7.12#stable (https://sqlmap.org)",
+      "generator": "faker"
+    },
+    "classification": {
+      "attack_type": "reconnaissance",
+      "threat_level": 7,
+      "intent_summary": "The attacker is conducting systematic reconnaissance to map the application structure and identify sensitive endpoints, configuration files, and potential vulnerabilities across multiple attack vectors including AWS credentials, API keys, and framework exploits.",
+      "confidence": 0.85
+    },
+    "personality": {
+      "mbti_type": "ESTJ",
+      "label": "The Methodical Mapper",
+      "e_i_score": 0.6,
+      "s_n_score": -0.7,
+      "t_f_score": -0.8,
+      "j_p_score": -0.9,
+      "personality_description": "This attacker operates like a military reconnaissance unit, systematically probing 30 unique paths across multiple attack vectors with the efficiency of automated tooling (sqlmap). They follow a structured approach to mapping application architecture, methodically testing known vulnerability patterns including AWS credentials, API endpoints, and configuration files. Their consistent 6.94-second intervals and comprehensive coverage suggest a disciplined, goal-oriented operator who prioritizes thorough intelligence gathering over stealth.",
+      "threat_level": 7
+    },
+    "ground_truth_distribution": {
+      "framework_exploit": 14,
+      "aws_credential_probe": 7,
+      "token_exfiltration": 5,
+      "reconnaissance": 6,
+      "env_probe": 10,
+      "oauth_abuse": 4,
+      "api_key_probe": 6
+    }
+  },
+  {
+    "session_id": "5.75.92.33_site_b_dummy_company",
+    "generator": "faker",
+    "site": "site_b_dummy_company",
+    "country": "DE",
+    "features": {
+      "total_requests": 100,
+      "unique_paths": 30,
+      "methods": {
+        "GET": 69,
+        "POST": 31
+      },
+      "status_distribution": {
+        "403": 24,
+        "200": 34,
+        "500": 7,
+        "422": 3,
+        "401": 10,
+        "404": 10,
+        "400": 6,
+        "429": 5,
+        "302": 1
+      },
+      "attack_type_distribution": {
+        "env_probe": 19,
+        "credential_stuffing": 19,
+        "payment_probe": 7,
+        "cms_attack": 16,
+        "account_takeover": 10,
+        "reconnaissance": 19,
+        "pii_scraping": 10
+      },
+      "avg_interval_seconds": 109.57,
+      "timing_regularity_stdev": 43.59,
+      "sample_paths": [
+        "/backup/2024.zip",
+        "/members/login/",
+        "/api/auth/login",
+        "/backup/2024.zip",
+        "/api/v1/cards/add",
+        "/wp-login.php",
+        "/login",
+        "/cms/wp-includes/wlwmanifest.xml"
+      ],
+      "site": "site_b_dummy_company",
+      "country": "DE",
+      "user_agent": "Scrapy/2.11.0 (+https://scrapy.org)",
+      "generator": "faker"
+    },
+    "classification": {
+      "attack_type": "reconnaissance",
+      "threat_level": 6,
+      "intent_summary": "The attacker is conducting comprehensive reconnaissance using Scrapy to map the target's infrastructure, probing for backup files, login endpoints, payment systems, and CMS vulnerabilities across multiple attack vectors. This appears to be intelligence gathering for a larger planned attack campaign.",
+      "confidence": 0.85
+    },
+    "personality": {
+      "mbti_type": "INTJ",
+      "label": "The Architect Scout",
+      "e_i_score": -0.7,
+      "s_n_score": 0.6,
+      "t_f_score": -0.8,
+      "j_p_score": -0.7,
+      "personality_description": "This attacker methodically maps target infrastructure using automated tools like Scrapy, systematically probing diverse attack vectors from backup files to payment systems with calculated precision. They operate as a strategic reconnaissance specialist, gathering comprehensive intelligence across multiple domains to architect future attack campaigns. Their disciplined timing patterns and broad yet targeted approach suggests a patient, analytical mindset focused on building detailed attack blueprints.",
+      "threat_level": 6
+    },
+    "ground_truth_distribution": {
+      "env_probe": 19,
+      "credential_stuffing": 19,
+      "payment_probe": 7,
+      "cms_attack": 16,
+      "account_takeover": 10,
+      "reconnaissance": 19,
+      "pii_scraping": 10
+    }
+  }
+]
