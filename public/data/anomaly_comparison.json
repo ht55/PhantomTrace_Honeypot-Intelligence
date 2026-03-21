@@ -1,0 +1,64 @@
+{
+  "session_level": {
+    "faker": {
+      "total_sessions": 31,
+      "anomaly_count": 3,
+      "anomaly_rate": 0.097,
+      "avg_score": -0.4972,
+      "score_std": 0.0268,
+      "top_anomalous_ips": [
+        "135.181.88.143",
+        "172.67.138.172",
+        "139.99.92.15",
+        "104.154.52.72",
+        "13.49.181.67"
+      ]
+    },
+    "markov": {
+      "total_sessions": 114,
+      "anomaly_count": 12,
+      "anomaly_rate": 0.105,
+      "avg_score": -0.4509,
+      "score_std": 0.0529,
+      "top_anomalous_ips": [
+        "139.99.170.96",
+        "172.67.158.195",
+        "51.178.231.237",
+        "135.181.90.59",
+        "104.21.50.226"
+      ]
+    },
+    "insight": "Faker sessions show tighter anomaly clustering \u2014 random distribution creates a cleaner baseline for detection."
+  },
+  "request_level": {
+    "faker": {
+      "total_anomalous_requests": 100,
+      "top_anomalous_attack_types": {
+        "cms_attack": 34,
+        "oauth_abuse": 31,
+        "framework_exploit": 11,
+        "reconnaissance": 9,
+        "credential_stuffing": 5
+      },
+      "top_anomalous_sites": {
+        "site_a_developer": 53,
+        "site_b_dummy_company": 47
+      }
+    },
+    "markov": {
+      "total_anomalous_requests": 37,
+      "top_anomalous_attack_types": {
+        "cms_attack": 14,
+        "oauth_abuse": 7,
+        "reconnaissance": 7,
+        "env_probe": 3,
+        "framework_exploit": 2
+      },
+      "top_anomalous_sites": {
+        "site_b_dummy_company": 23,
+        "site_a_developer": 14
+      }
+    },
+    "insight": "Request-level anomalies in Markov logs tend to cluster around state transitions \u2014 moments where attacker behavior shifts phases are the most detectable."
+  }
+}

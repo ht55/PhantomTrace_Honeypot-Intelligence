@@ -1,0 +1,235 @@
+{
+  "summary": {
+    "faker_sessions_analyzed": 20,
+    "markov_sessions_analyzed": 20
+  },
+  "classification_accuracy": {
+    "faker": {
+      "total_sessions": 20,
+      "correct": 4,
+      "accuracy": 0.2,
+      "mismatches": [
+        {
+          "session_id": "20.100.161.16_site_a_developer",
+          "ground_truth": "framework_exploit",
+          "llm_prediction": "reconnaissance",
+          "confidence": 0.9
+        },
+        {
+          "session_id": "134.209.121.128_site_b_dummy_company",
+          "ground_truth": "env_probe",
+          "llm_prediction": "reconnaissance",
+          "confidence": 0.85
+        },
+        {
+          "session_id": "51.178.228.178_site_a_developer",
+          "ground_truth": "framework_exploit",
+          "llm_prediction": "credential_harvesting",
+          "confidence": 0.85
+        },
+        {
+          "session_id": "18.185.20.242_site_a_developer",
+          "ground_truth": "framework_exploit",
+          "llm_prediction": "reconnaissance",
+          "confidence": 0.85
+        },
+        {
+          "session_id": "91.108.42.128_site_b_dummy_company",
+          "ground_truth": "cms_attack",
+          "llm_prediction": "reconnaissance",
+          "confidence": 0.85
+        },
+        {
+          "session_id": "185.220.71.98_site_b_dummy_company",
+          "ground_truth": "env_probe",
+          "llm_prediction": "reconnaissance",
+          "confidence": 0.85
+        },
+        {
+          "session_id": "141.94.201.79_site_a_developer",
+          "ground_truth": "framework_exploit",
+          "llm_prediction": "reconnaissance",
+          "confidence": 0.85
+        },
+        {
+          "session_id": "20.100.213.15_site_a_developer",
+          "ground_truth": "env_probe",
+          "llm_prediction": "reconnaissance",
+          "confidence": 0.85
+        },
+        {
+          "session_id": "16.16.20.14_site_b_dummy_company",
+          "ground_truth": "cms_attack",
+          "llm_prediction": "reconnaissance",
+          "confidence": 0.85
+        },
+        {
+          "session_id": "188.166.197.174_site_a_developer",
+          "ground_truth": "framework_exploit",
+          "llm_prediction": "credential_harvesting",
+          "confidence": 0.85
+        }
+      ]
+    },
+    "markov": {
+      "total_sessions": 20,
+      "correct": 8,
+      "accuracy": 0.4,
+      "mismatches": [
+        {
+          "session_id": "89.163.25.35_site_a_developer",
+          "ground_truth": "framework_exploit",
+          "llm_prediction": "reconnaissance",
+          "confidence": 0.85
+        },
+        {
+          "session_id": "13.48.247.112_site_a_developer",
+          "ground_truth": "env_probe",
+          "llm_prediction": "credential_harvesting",
+          "confidence": 0.85
+        },
+        {
+          "session_id": "91.108.183.156_site_a_developer",
+          "ground_truth": "env_probe",
+          "llm_prediction": "credential_harvesting",
+          "confidence": 0.92
+        },
+        {
+          "session_id": "51.13.20.166_site_a_developer",
+          "ground_truth": "aws_credential_probe",
+          "llm_prediction": "credential_harvesting",
+          "confidence": 0.9
+        },
+        {
+          "session_id": "5.75.137.236_site_b_dummy_company",
+          "ground_truth": "reconnaissance",
+          "llm_prediction": "credential_stuffing",
+          "confidence": 0.85
+        },
+        {
+          "session_id": "3.120.48.180_site_a_developer",
+          "ground_truth": "env_probe",
+          "llm_prediction": "reconnaissance",
+          "confidence": 0.9
+        },
+        {
+          "session_id": "5.75.244.130_site_b_dummy_company",
+          "ground_truth": "reconnaissance",
+          "llm_prediction": "credential_stuffing",
+          "confidence": 0.8
+        },
+        {
+          "session_id": "172.67.64.33_site_b_dummy_company",
+          "ground_truth": "env_probe",
+          "llm_prediction": "reconnaissance",
+          "confidence": 0.9
+        },
+        {
+          "session_id": "167.99.250.25_site_a_developer",
+          "ground_truth": "framework_exploit",
+          "llm_prediction": "reconnaissance",
+          "confidence": 0.85
+        },
+        {
+          "session_id": "185.130.105.252_site_a_developer",
+          "ground_truth": "aws_credential_probe",
+          "llm_prediction": "credential_harvesting",
+          "confidence": 0.9
+        }
+      ]
+    },
+    "delta": 0.2,
+    "insight": "Markov logs are more accurately classified \u2014 sequential context makes attack intent clearer to the LLM."
+  },
+  "personality_profiles": {
+    "faker": {
+      "mbti_distribution": {
+        "ISTJ": 8,
+        "INTJ": 4,
+        "ESTJ": 3,
+        "ENTP": 3,
+        "ENTJ": 2
+      },
+      "top_archetypes": {
+        "The Methodical Mapper": 3,
+        "The Credential Harvester": 2,
+        "The Methodical Harvester": 2,
+        "The Corporate Auditor": 1,
+        "The Methodical Cartographer": 1
+      },
+      "avg_threat_level": 6.7
+    },
+    "markov": {
+      "mbti_distribution": {
+        "ISTJ": 17,
+        "ESTJ": 1,
+        "ESTP": 1,
+        "ISFJ": 1
+      },
+      "top_archetypes": {
+        "The Methodical Scout": 4,
+        "The Methodical Harvester": 4,
+        "The Blueprint Hunter": 2,
+        "The Corporate Raider": 1,
+        "The Data Harvester": 1
+      },
+      "avg_threat_level": 6.0
+    }
+  },
+  "sample_personalities": [
+    {
+      "session_id": "20.100.161.16_site_a_developer",
+      "site": "site_a_developer",
+      "generator": "faker",
+      "mbti": "ESTJ",
+      "label": "The Corporate Auditor",
+      "description": "This attacker operates like a methodical corporate auditor, systematically scanning 32 unique paths across multiple known attack vectors using the automated Nuclei framework. They follow a disciplined reconnaissance approach, efficiently cataloging vulnerabilities across AWS credentials, API endpoints, and common framework exploits with machine-like precision and timing regularity. Their broad but systematic scanning style suggests someone who values comprehensive coverage over deep manual exploration.",
+      "threat_level": 6
+    },
+    {
+      "session_id": "167.99.173.37_site_b_dummy_company",
+      "site": "site_b_dummy_company",
+      "generator": "faker",
+      "mbti": "INTJ",
+      "label": "The Methodical Cartographer",
+      "description": "This attacker operates like a digital surveyor, systematically mapping the target's entire attack surface through methodical reconnaissance across multiple vectors. They demonstrate strategic patience and technical precision, using automated tools to efficiently probe authentication systems, CMS installations, and payment endpoints with calculated timing intervals. Their comprehensive approach suggests they're building detailed intelligence for a well-planned, multi-phase campaign rather than seeking quick opportunistic wins.",
+      "threat_level": 7
+    },
+    {
+      "session_id": "162.159.145.253_site_a_developer",
+      "site": "site_a_developer",
+      "generator": "faker",
+      "mbti": "ISTJ",
+      "label": "The Credential Harvester",
+      "description": "This attacker operates like a methodical data miner, systematically probing for AWS credentials and configuration files using well-established attack patterns and automated tooling. They follow a disciplined reconnaissance approach with consistent 8-second intervals, focusing their energy on high-value cloud infrastructure secrets rather than broad exploration. Their behavior suggests a professional operator who prioritizes efficiency and proven techniques over creative discovery methods.",
+      "threat_level": 7
+    },
+    {
+      "session_id": "134.209.121.128_site_b_dummy_company",
+      "site": "site_b_dummy_company",
+      "generator": "faker",
+      "mbti": "ENTP",
+      "label": "The Multi-Vector Scout",
+      "description": "This attacker demonstrates broad reconnaissance behavior, simultaneously probing multiple attack vectors from environment files to payment systems with opportunistic timing patterns. They combine systematic efficiency with creative exploration, testing both common vulnerabilities and unique endpoints to comprehensively map the target's attack surface. Their diverse attack type distribution and moderate request intervals suggest a methodical yet adaptable approach focused on intelligence gathering rather than immediate exploitation.",
+      "threat_level": 7
+    },
+    {
+      "session_id": "51.178.228.178_site_a_developer",
+      "site": "site_a_developer",
+      "generator": "faker",
+      "mbti": "ISTJ",
+      "label": "The Methodical Harvester",
+      "description": "This attacker operates with surgical precision, systematically probing known credential storage locations using automated tools with consistent timing intervals. They follow established attack patterns targeting AWS credentials, environment files, and framework configurations rather than exploring creative attack vectors. Their methodical approach and focus on high-value authentication data suggests a professional operator seeking reliable credential harvesting rather than flashy exploitation.",
+      "threat_level": 7
+    },
+    {
+      "session_id": "18.185.20.242_site_a_developer",
+      "site": "site_a_developer",
+      "generator": "faker",
+      "mbti": "ENTP",
+      "label": "The Reconnaissance Wanderer",
+      "description": "This attacker operates as a curious explorer, casting a wide net across multiple attack vectors with moderate efficiency but high adaptability. They probe systematically through known vulnerabilities and endpoints while remaining opportunistic enough to explore unconventional paths like backup environment files and AWS configurations. Their moderate pacing (7.51 second intervals) and diverse target selection reveals a methodical yet flexible approach to reconnaissance, preferring to map the entire attack surface before committing to specific exploitation paths.",
+      "threat_level": 7
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+# General
+# Next.js
+.next/
+out/
+
+node_modules/
+
+.env
+.env.local
+.env.development.local
+.env.production.local
+
+.DS_Store
+Thumbs.db
+
+.idea/
+
+.turbo/
+
+# Generated data — regenerate with main.py
+honeypot_logs_faker.json
+honeypot_logs_markov.json
+
+# LLM output — regenerate with llm_pipeline.py
+classified_logs_faker.json
+classified_logs_markov.json
+
+# Anomaly detection output — regenerate with anomaly_detection.py
+anomaly_sessions_faker.json
+anomaly_sessions_markov.json
+anomaly_requests_faker.json
+anomaly_requests_markov.json
+# classification_report.json & anomaly_comparison.json are published for demos
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.DS_Store
+.env
+
+# TypeScript / Next.js
+tsconfig.tsbuildinfo
+.next/
+
+# Editor
+.vscode/

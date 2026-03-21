@@ -1,0 +1,400 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   PHANTOM TRACE — Design System v2
+   Font:    Exo 2 (display/headings) + Share Tech Mono (data/labels)
+   Palette: Cyan · Purple · Amber · Rose  ×  deep navy-black bg
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;600;700;800;900&family=Share+Tech+Mono&display=swap');
+
+/* ── Design Tokens ─────────────────────────────────────────────────────────── */
+:root {
+
+  /* Background — not flat black, lit from top-left */
+  --bg:        #04060e;
+  --bg-lit:    #070c18;   /* slightly lifted center */
+
+  /* Elevation surfaces — 4 clear steps */
+  --s0:        #04060e;   /* page bg */
+  --s1:        #080d18;   /* deepest card */
+  --s2:        #0c1220;   /* standard card */
+  --s3:        #101828;   /* elevated / hover */
+  --s4:        #151f30;   /* top-most / active */
+
+  /* Border system */
+  --border-0:  rgba(255, 255, 255, 0.04);
+  --border-1:  rgba(255, 255, 255, 0.07);
+  --border-2:  rgba(255, 255, 255, 0.11);
+  --border-cyan:   rgba(0,   255, 224, 0.18);
+  --border-purple: rgba(168,  85, 247, 0.18);
+
+  /* ── 4-color accent palette ── */
+  --cyan:      #00ffe0;
+  --cyan-dim:  #00c4aa;
+  --cyan-dark: #003d36;
+
+  --purple:    #a855f7;
+  --purple-dim:#7c3aed;
+  --purple-dark:#2d1060;
+
+  --amber:     #f5a623;
+  --amber-dim: #c47d0e;
+  --amber-dark:#3d2500;
+
+  --rose:      #ff4c6e;   /* anomaly / danger only */
+  --rose-dim:  #c0253e;
+  --rose-dark: #3d0a14;
+
+  /* Text */
+  --text:      #e4eef8;
+  --text-dim:  #b8cfe0;
+  --muted:     #a8c0d4;
+  --dim:       #7a9ab5;
+
+  /* ── Gradients — all 135deg, consistent light source ── */
+  --grad-primary:      linear-gradient(135deg, #00ffe0, #a855f7);
+  --grad-primary-soft: linear-gradient(135deg, rgba(0,255,224,0.18), rgba(168,85,247,0.14));
+  --grad-warm:         linear-gradient(135deg, #f5a623, #a855f7);
+  --grad-danger:       linear-gradient(135deg, #ff4c6e, #a855f7);
+  --grad-cyan:         linear-gradient(135deg, #00ffe0, #00c4aa);
+  --grad-purple:       linear-gradient(135deg, #a855f7, #7c3aed);
+  --grad-amber:        linear-gradient(135deg, #f5a623, #c47d0e);
+  --grad-full:         linear-gradient(135deg, #00ffe0 0%, #a855f7 40%, #f5a623 75%, #ff4c6e 100%);
+
+  /* ── Elevation shadow system ── */
+  /* Each level: depth shadow + border glow + optional colored haze */
+  --shadow-0: none;
+
+  --shadow-1:
+    0 1px 4px  rgba(0,0,0,0.5),
+    0 0 0 1px  var(--border-0);
+
+  --shadow-2:
+    0 4px 16px  rgba(0,0,0,0.55),
+    0 1px 4px   rgba(0,0,0,0.4),
+    0 0 0 1px   var(--border-1),
+    0 0 48px    rgba(0,255,224,0.025);
+
+  --shadow-3:
+    0 8px 32px  rgba(0,0,0,0.65),
+    0 2px 8px   rgba(0,0,0,0.5),
+    0 0 0 1px   var(--border-2),
+    0 0 64px    rgba(0,255,224,0.04),
+    inset 0 1px 0 rgba(255,255,255,0.05);
+
+  --shadow-4:
+    0 16px 56px rgba(0,0,0,0.75),
+    0 4px 16px  rgba(0,0,0,0.6),
+    0 0 0 1px   var(--border-cyan),
+    0 0 80px    rgba(0,255,224,0.07),
+    0 0 120px   rgba(168,85,247,0.04),
+    inset 0 1px 0 rgba(255,255,255,0.07);
+
+  /* ── Glow utilities ── */
+  --glow-cyan:
+    0 0 20px  rgba(0,255,224,0.3),
+    0 0 60px  rgba(0,255,224,0.12),
+    0 0 120px rgba(0,255,224,0.05);
+
+  --glow-purple:
+    0 0 20px  rgba(168,85,247,0.3),
+    0 0 60px  rgba(168,85,247,0.12),
+    0 0 120px rgba(168,85,247,0.05);
+
+  --glow-amber:
+    0 0 20px  rgba(245,166,35,0.3),
+    0 0 60px  rgba(245,166,35,0.12);
+
+  --glow-rose:
+    0 0 16px  rgba(255,76,110,0.35),
+    0 0 48px  rgba(255,76,110,0.12);
+
+  --glow-both:
+    0 0 32px  rgba(0,255,224,0.15),
+    0 0 80px  rgba(168,85,247,0.1),
+    0 0 140px rgba(0,255,224,0.04);
+
+  /* ── Typography ── */
+  --font-display: 'Exo 2', sans-serif;
+  --font-mono:    'Share Tech Mono', monospace;
+}
+
+/* ── Reset ─────────────────────────────────────────────────────────────────── */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+/* ── Body — lit background, not flat black ──────────────────────────────────── */
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-display);
+  font-size: 15px;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/*
+  Layer 1 — ambient lighting mesh
+  Three colored light sources: cyan top-left, purple bottom-right, faint amber center
+  Much more intensity than before — this is what gives depth to the black bg
+*/
+body::before {
+  content: '';
+  position: fixed; inset: 0; pointer-events: none; z-index: 0;
+  background:
+    /* cyan — strong top-left light source */
+    radial-gradient(ellipse 70% 55% at 5%   0%,    rgba(0,255,224,0.22)  0%, transparent 65%),
+    /* purple — strong bottom-right counter-light */
+    radial-gradient(ellipse 65% 55% at 95%  100%,  rgba(168,85,247,0.26) 0%, transparent 60%),
+    /* amber — warm accent, right */
+    radial-gradient(ellipse 45% 40% at 90%  30%,   rgba(245,166,35,0.12) 0%, transparent 55%),
+    /* rose — subtle left-bottom accent */
+    radial-gradient(ellipse 40% 35% at 5%   90%,   rgba(255,76,110,0.10) 0%, transparent 55%),
+    /* deep vignette — corners stay dark */
+    radial-gradient(ellipse 85% 85% at 50%  50%,   transparent 35%, rgba(0,0,0,0.65) 100%);
+}
+
+/* Layer 2 — grain texture for depth */
+body::after {
+  content: '';
+  position: fixed; inset: 0; pointer-events: none; z-index: 0;
+  opacity: 0.028;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 180px;
+}
+
+/* ── Scrollbar ──────────────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track {
+  background: rgba(4,6,14,0.8);
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #00ffe0, #a855f7, #f5a623);
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(0,255,224,0.4), inset 0 0 4px rgba(255,255,255,0.1);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #00ffe0, #a855f7);
+  box-shadow: 0 0 16px rgba(0,255,224,0.6);
+}
+
+/* ── Text gradient utilities ────────────────────────────────────────────────── */
+.text-gradient {
+  background: var(--grad-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-warm {
+  background: var(--grad-warm);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@keyframes gradientShift {
+  0%   { background-position: 0%   50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0%   50%; }
+}
+
+/* Animated title gradient — 4 colors cycling */
+.text-gradient-animated {
+  background: linear-gradient(
+    135deg,
+    #00ffe0 0%,
+    #a855f7 30%,
+    #f5a623 60%,
+    #ff4c6e 80%,
+    #00ffe0 100%
+  );
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 6s ease infinite;
+}
+
+/* ── Section divider ────────────────────────────────────────────────────────── */
+.section-divider {
+  border: none;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(0,255,224,0.12),
+    rgba(168,85,247,0.18),
+    rgba(0,255,224,0.12),
+    transparent
+  );
+  margin: 2.5rem 0;
+}
+
+/* ── Data table ─────────────────────────────────────────────────────────────── */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+.data-table th {
+  text-align: left;
+  padding: 0.55rem 1rem;
+  color: var(--muted);
+  border-bottom: 1px solid var(--border-1);
+  font-weight: 400;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  font-size: 10px;
+  background: rgba(0,255,224,0.018);
+}
+.data-table td {
+  padding: 0.55rem 1rem;
+  color: var(--text-dim);
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  font-size: 12px;
+  transition: background 0.15s ease;
+}
+.data-table tr:last-child td { border-bottom: none; }
+.data-table tr:hover td {
+  background: rgba(0,255,224,0.03);
+  color: var(--text);
+}
+
+/* ── Anomaly badge ──────────────────────────────────────────────────────────── */
+.anomaly-yes {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--rose);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  background: rgba(255,76,110,0.08);
+  border: 1px solid rgba(255,76,110,0.22);
+  border-radius: 4px;
+  padding: 2px 7px;
+  box-shadow: 0 0 10px rgba(255,76,110,0.1);
+  letter-spacing: 0.06em;
+}
+.anomaly-dot {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--rose);
+  display: inline-block;
+  animation: pulse 1.6s ease-in-out infinite;
+  box-shadow: 0 0 8px rgba(255,76,110,0.8);
+}
+
+/* ── Animations ─────────────────────────────────────────────────────────────── */
+@keyframes pulse   { 0%,100%{opacity:1} 50%{opacity:0.3} }
+@keyframes fadeUp  { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
+@keyframes fadeIn  { from{opacity:0;transform:scale(0.97)} to{opacity:1;transform:scale(1)} }
+@keyframes float   { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-7px)} }
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+
+/* ── Nav glass ──────────────────────────────────────────────────────────────── */
+/*
+  Stronger glass effect — not just translucent, has colored inner glow
+  top highlight (inset) + bottom shadow creates "floating pane" feel
+*/
+.nav-glass {
+  background: rgba(7, 11, 22, 0.88);
+  backdrop-filter: blur(28px) saturate(1.4);
+  -webkit-backdrop-filter: blur(28px) saturate(1.4);
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow:
+    0 8px 40px  rgba(0,0,0,0.55),
+    0 0 0 1px   rgba(255,255,255,0.04),
+    0 0 60px    rgba(0,255,224,0.04),
+    inset 0 1px 0 rgba(255,255,255,0.07),
+    inset 0 -1px 0 rgba(0,255,224,0.04);
+}
+
+/* ── Card base — gradient border via pseudo-element ──────────────────────── */
+/*
+  card-gradient-border: visible 1px gradient border on all sides
+  Much more pronounced than before — you can actually see the border glow
+*/
+.card-gradient-border {
+  position: relative;
+  border-radius: 14px;
+  background: var(--s2);
+}
+.card-gradient-border::before {
+  content: '';
+  position: absolute; inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    135deg,
+    rgba(0,255,224,0.25),
+    rgba(168,85,247,0.15),
+    rgba(0,255,224,0.06),
+    rgba(168,85,247,0.08)
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* ── Glow utility classes ────────────────────────────────────────────────────── */
+.glow-cyan   { box-shadow: var(--glow-cyan); }
+.glow-purple { box-shadow: var(--glow-purple); }
+.glow-amber  { box-shadow: var(--glow-amber); }
+.glow-rose   { box-shadow: var(--glow-rose); }
+.glow-both   { box-shadow: var(--glow-both); }
+
+/* ── Elevation utility classes ───────────────────────────────────────────────── */
+.elev-1 { box-shadow: var(--shadow-1); }
+.elev-2 { box-shadow: var(--shadow-2); }
+.elev-3 { box-shadow: var(--shadow-3); }
+.elev-4 { box-shadow: var(--shadow-4); }
+
+/* ── Interactive lift — add to any hoverable card ──────────────────────────── */
+.card-lift {
+  transition: transform 0.3s cubic-bezier(0.16,1,0.3,1),
+              box-shadow 0.3s ease,
+              border-color 0.3s ease;
+}
+.card-lift:hover {
+  transform: translateY(-4px);
+}
+
+/* ── Gradient text shimmer (for special callouts) ────────────────────────── */
+.text-shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--cyan) 0%,
+    #ffffff    40%,
+    var(--cyan) 60%,
+    var(--purple) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3s linear infinite;
+}
+
+/* ── Tag / badge base ───────────────────────────────────────────────────────── */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  padding: 2px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+.tag-cyan   { color: var(--cyan);   background: rgba(0,255,224,0.08);  border: 1px solid rgba(0,255,224,0.2);  box-shadow: 0 0 10px rgba(0,255,224,0.06); }
+.tag-purple { color: var(--purple); background: rgba(168,85,247,0.08); border: 1px solid rgba(168,85,247,0.2); box-shadow: 0 0 10px rgba(168,85,247,0.06); }
+.tag-amber  { color: var(--amber);  background: rgba(245,166,35,0.08); border: 1px solid rgba(245,166,35,0.2); box-shadow: 0 0 10px rgba(245,166,35,0.06); }
+.tag-rose   { color: var(--rose);   background: rgba(255,76,110,0.08); border: 1px solid rgba(255,76,110,0.2); box-shadow: 0 0 10px rgba(255,76,110,0.06); }
