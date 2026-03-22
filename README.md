@@ -1,11 +1,23 @@
-# 🕸️ Phantom Trace: Honeypot Intelligence with Faker, Markov, and LLM
+# 🕸️ Phantom Trace: Honeypot Intelligence with Faker, Markov, and LLM + MBTI Profiling
 
 > Synthetic attack log generation, LLM-powered classification, and MBTI-style attacker profiling — built as an AI systems engineering portfolio project.
 
 ![Python](https://img.shields.io/badge/Python-3.11+-00ffe0?style=flat-square&labelColor=0d1117)
-![Streamlit](https://img.shields.io/badge/Streamlit-1.32+-ff4c6e?style=flat-square&labelColor=0d1117)
+![Next.js](https://img.shields.io/badge/Next.js-15+-ffffff?style=flat-square&labelColor=000000)
+![TypeScript](https://img.shields.io/badge/TypeScript-5+-3178c6?style=flat-square&labelColor=1a1a2e)
+![Tailwind](https://img.shields.io/badge/Tailwind-3+-38bdf8?style=flat-square&labelColor=0f172a)
 ![Anthropic](https://img.shields.io/badge/Claude-Sonnet_4-f5c542?style=flat-square&labelColor=0d1117)
+![Streamlit](https://img.shields.io/badge/Streamlit-1.32+-ff4c6e?style=flat-square&labelColor=0d1117)
 ![License](https://img.shields.io/badge/License-MIT-556270?style=flat-square&labelColor=0d1117)
+
+**🤖 Live Demo → [Phantom Trace 👻](https://phantom-trace.vercel.app)**
+
+---
+
+<p align="center">
+  <img src="pt2.png" width="320" alt="App Screenshot" />
+  <img src="pt3.png" width="320" alt="App Screenshot" />
+</p>
 
 ---
 
@@ -17,7 +29,7 @@ Most honeypot projects stop at log collection. This one starts there — but the
 
 To answer that without running a real honeypot (and the legal/security surface that comes with it), this project generates two flavors of synthetic attack logs and puts them through an LLM analysis pipeline.
 
-This was not the original plan. A dummy fitness company site (bodysyniq.fit) was deployed specifically as a honeypot — complete with canary tokens and intentionally exposed `.env` — but Cloudflare's bot protection, while excellent for production use, blocked the very traffic this project needed to observe. Rather than pay for higher-tier plans or expose a VPS, the project pivoted to synthetic data: a cleaner approach that also enables ground-truth labeling and reproducibility.
+This was not the original plan. A dummy fitness company site (bodysyniq.fit) was deployed specifically as a honeypot — complete with canary tokens and intentionally exposed `.env` — but Cloudflare's bot protection, while excellent for production use, blocked the very traffic this project needed to observe. Rather than expose a VPS or pay for higher-tier plans, the project pivoted to synthetic data: a cleaner approach that also enables ground-truth labeling and reproducibility.
 
 ---
 
@@ -25,7 +37,7 @@ This was not the original plan. A dummy fitness company site (bodysyniq.fit) was
 
 ```
 ┌─────────────────────────────────────────────────────────┐
-│                    DATA GENERATION                       │
+│                    DATA GENERATION                      │
 │                                                         │
 │   personas.py                                           │
 │   ├── Site A: API-first developer site                  │
@@ -39,7 +51,7 @@ This was not the original plan. A dummy fitness company site (bodysyniq.fit) was
 └────────────────────┬────────────────────────────────────┘
                      │
 ┌────────────────────▼────────────────────────────────────┐
-│                  LLM PIPELINE                            │
+│                  LLM PIPELINE                           │
 │                                                         │
 │   llm_pipeline.py                                       │
 │   ├── Session feature extraction                        │
@@ -54,7 +66,7 @@ This was not the original plan. A dummy fitness company site (bodysyniq.fit) was
 └────────────────────┬────────────────────────────────────┘
                      │
 ┌────────────────────▼────────────────────────────────────┐
-│                 VISUALIZATION                            │
+│                 VISUALIZATION                           │
 │                                                         │
 │   dashboard.py  (Streamlit)                             │
 │   ├── Overview          — volume, origins, timeline     │
@@ -102,7 +114,7 @@ Textbook threat intel points to CN/IN/RU as dominant sources. In practice, the o
 | Europe minor                 | Dominant (FRA, AMS, ARN, OSL, CDG) |
 
 **Developer sites attract disproportionate traffic.**
-The developer portal hosting API-key-gated applications received roughly 10x more daily attack traffic than the dummy company site with canary tokens and exposed `.env`. Modern attackers appear to prioritize credential theft — specifically API keys that enable immediate, programmatic access — over static data exfiltration.
+The developer portal hosting API-key-gated applications received roughly 10x more daily attack traffic than the dummy company site with canary tokens and exposed `.env` (poor Chad). Modern attackers appear to prioritize credential theft — specifically API keys that enable immediate, programmatic access — over static data exfiltration.
 
 **AWS credential paths are specifically and systematically targeted.**
 Scanners didn't just probe `/.env` — they ran through a structured dictionary: `/awsconfig.js`, `/aws.env`, `/.aws/credentials`, `/aws-exports.js`, `/crm/.env`, `/.env.bak`, `/.env.live`, `/.env.prod`. This reflects purpose-built tooling, not generic scanners.
