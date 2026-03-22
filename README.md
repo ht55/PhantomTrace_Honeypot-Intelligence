@@ -15,8 +15,9 @@
 ---
 
 <p align="center">
-  <img src="pt2.png" width="320" alt="App Screenshot" />
-  <img src="pt3.png" width="320" alt="App Screenshot" />
+  <img src="pt1.png" width="270" alt="App Screenshot" />
+  <img src="pt2.png" width="270" alt="App Screenshot" />
+  <img src="pt3.png" width="270" alt="App Screenshot" />
 </p>
 
 ---
